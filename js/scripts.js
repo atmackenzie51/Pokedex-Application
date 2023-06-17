@@ -1,3 +1,9 @@
+// Redo of Exercise 1.0, reverting the commit deleted all files
+alert('Hello, World!');
+
+let favoriteFood = 'Rice';
+document.write(favoriteFood);
+
 // Database of Gen 1 and 2 starter pokemon with a hatch steps
 let pokemonList = [
     {
