@@ -44,16 +44,16 @@ let pokemonList = [
   },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 0.8) {
-    document.write(
-      pokemonList[i].name + ':' + ` (Height: ${pokemonList[i].height})` + ' - WOW, that\'s a big one!'
-    );
-  } else {
-    document.write(
-      pokemonList[i].name + ':' + ` (Height: ${pokemonList[i].height})`
-    );
+pokemonList.forEach(function(pokemon){
+  if (pokemon.height > 0.8) {
+    document.write (
+      pokemon.name + `: (Height: ${pokemon.height})` + " - WOW, that\'s a big one!"
+    )
+  }else{
+
+  document.write(
+    pokemon.name + `: (Height: ${pokemon.height})`
+  );
   }
-  //adds a row space in-between each pokemon entry
-  document.write('<br> <br>') 
-}
+  document.write('<br> <br>')
+});
