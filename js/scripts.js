@@ -1,6 +1,6 @@
 // Setting a IIFE for Database of Gen 1 and 2 starter pokemon with a hatch steps
 let pokemonRepository = (function () {
-  let pokemonList = [
+  let pokeDex = [
     {
       name: "Bulbasaur",
       pokedexID: 1,
@@ -22,57 +22,47 @@ let pokemonRepository = (function () {
       type: ["water"],
       hatchSteps: 5100,
     },
-    {
-      name: "Chikorita",
-      pokedexID: 152,
-      height: 0.9,
-      type: ["grass"],
-      hatchSteps: 5100,
-    },
-    {
-      name: "Cyndaquil",
-      pokedexID: 155,
-      height: 0.5,
-      type: ["fire"],
-      hatchSteps: 5100,
-    },
-    {
-      name: "Totodile",
-      pokedexID: 158,
-      height: 0.6,
-      type: ["water"],
-      hatchSteps: 5100,
-    },
   ];
 
   //two functions add and getAll within the IIFE
   function add(pokemon) {
-    if (typeof pokemon === "object"){
-      pokemonList.push(pokemon);
+    if (typeof pokemon === "object") {
+      pokeDex.push(pokemon);
     }
   }
 
   function getAll() {
-    return pokemonList;
+    return pokeDex;
+  }
+  //function that puts the DOM nodes as a list
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listPokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+
+    // adds a click listener
+    button.addEventListener("click", function () {
+      showDetails(pokemon);
+    });
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
+  }
+
+  // when button is clicked, shows pokemon details in console log
+  function showDetails(pokemon) {
+    console.log(pokemon);
   }
 
   // creation of objects with the IIFE
   return {
     add: add,
     getAll: getAll,
+    addListItem: addListItem,
   };
 })();
 
-function pokemonInfo(pokemon) {
-  if (pokemon.height > 0.8) {
-    document.write(
-      pokemon.name +
-        `: (Height: ${pokemon.height})` + " - WOW, that's a big one!"
-    );
-  } else {
-    document.write(pokemon.name + `: (Height: ${pokemon.height})`);
-  }
-  document.write("<br> <br>");
-}
-
-pokemonRepository.getAll().forEach(pokemonInfo);
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
