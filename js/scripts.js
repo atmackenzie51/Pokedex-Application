@@ -1,11 +1,11 @@
-// Setting a IIFE for Database of Gen 1 and 2 starter pokemon with a hatch steps
+// Setting a IIFE for Database of Gen 1 pokemon
 let pokemonRepository = (function () {
   let pokemonList = [];
-  
+
   //API for the first 150 pokemon
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'; 
   
-  //two functions add and getAll within the IIFE
+  //functions add and getAll within the IIFE
   function add(pokemon) {
     if (typeof pokemon === "object" &&
     "name" in pokemon &&
@@ -21,7 +21,7 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  //function that puts the DOM nodes as a list
+  //function that puts pokemon as a button
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listPokemon = document.createElement("li");
@@ -36,6 +36,7 @@ let pokemonRepository = (function () {
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
   }
+  
   function loadList(){
     return fetch(apiUrl).then(function (response){
       return response.json();
@@ -65,14 +66,14 @@ let pokemonRepository = (function () {
     });
   }
 
-  // when button is clicked, shows pokemon details in console log
+  // when button is clicked, shows pokemon details from API in console log
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function(){
       console.log(item);
     });
   }
 
-  // creation of objects with the IIFE
+  // IIFE keys
   return {
     add: add,
     getAll: getAll,
