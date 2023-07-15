@@ -1,78 +1,25 @@
-.button-class {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: capitalize;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border: 2px solid #4caf50;
+
+body{
+  background-color: teal;
 }
-/* by default, modal container is hidden */
-#modal-container { 
-    display: none;
-  }
 
-/* modal container shows if class is-visible is assigned */
-#modal-container.is-visible {
-    position: fixed;
-    padding: 20px;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-  
-    /* to show it above other content */
-    z-index: 999; 
-  
-    /* to allow scrolling if the screen is not high enough*/
-    overflow: auto; 
-  
-    /* this is used to center the modal */
+.btn-primary{
+  background-color: red;
+  border: 2px solid;
+  border-color: black;
+}
+
+.modal-title, .btn-primary{
+  text-transform: capitalize;
+}
+
+.list-group{
+  margin: 100px;
+}
+
+@media (min-width: 990px) {
+  .list-group {
     display: grid;
-    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
   }
-  .modal {
-    margin: auto;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #fff;
-    padding: 15px;
-    width: 100%;
-    max-width: 700px;
-    text-align: left;
-  }
-  
-  .modal-close {
-    float: right;
-    -webkit-appearance: none;
-    border: 0;
-    background: none;
-    color: #777;
-    text-decoration: underline;
-  }
-  
-  .modal h1 {
-    margin-top: 0;
-    text-transform: capitalize;
-  }
-  
-  .modal p {
-    margin-bottom: 0;
-  }
-
-  .modal-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+}
