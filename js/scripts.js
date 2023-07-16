@@ -3,11 +3,12 @@ let pokemonRepository = (function () {
   let pokemonList = [];
 
   // API for the first 150 Pokémon
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   // Functions add and getAll within the IIFE
   function add(pokemon) {
-    if (typeof pokemon === "object" &&
+    if (
+      typeof pokemon === "object" &&
       "name" in pokemon &&
       "detailsUrl" in pokemon
     ) {
@@ -20,8 +21,6 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
-
-
 
   // Function that adds Pokémon as a list item
   function addListItem(pokemon) {
@@ -52,7 +51,7 @@ let pokemonRepository = (function () {
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
-            detailsUrl: item.url
+            detailsUrl: item.url,
           };
           add(pokemon);
         });
@@ -81,8 +80,6 @@ let pokemonRepository = (function () {
       });
   }
 
-
-
   function showDetails(item) {
     loadDetails(item).then(() => {
       showModal(item);
@@ -102,11 +99,15 @@ let pokemonRepository = (function () {
     let pokemonImageShiny = $("<img class='modal-img' style='width:50%'>");
     pokemonImageShiny.attr("src", item.shiny);
 
-    let pokemonHeight = $("<p><strong>Height:</strong> " + item.height/10 + "m" + "</p>");
-    let capitalizedTypes = item.types.map(type => type.charAt(0).toUpperCase() + type.slice(1));
-    let pokemonTypes = $("<p><strong>Types:</strong> " + capitalizedTypes.join(", ") + "</p>");
-
-
+    let pokemonHeight = $(
+      "<p><strong>Height:</strong> " + item.height / 10 + "m" + "</p>"
+    );
+    let capitalizedTypes = item.types.map(
+      (type) => type.charAt(0).toUpperCase() + type.slice(1)
+    );
+    let pokemonTypes = $(
+      "<p><strong>Types:</strong> " + capitalizedTypes.join(", ") + "</p>"
+    );
 
     modalTitle.append(pokemonName);
     modalBody.append(pokemonImageDefault);
@@ -114,11 +115,6 @@ let pokemonRepository = (function () {
     modalBody.append(pokemonHeight);
     modalBody.append(pokemonTypes);
   }
-
-
-  
-  
-
 
   // Return public methods
   return {
@@ -128,8 +124,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    showModal: showModal
-    
+    showModal: showModal,
   };
 })();
 
@@ -137,6 +132,4 @@ pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
-  });
-
-
+});
