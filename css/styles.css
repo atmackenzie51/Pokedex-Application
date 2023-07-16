@@ -1,10 +1,16 @@
+/*
+Colors Used:
+primary background color: #008080
+button color: #ff0000
+modal background color: #b1b1b3
 
+*/
 body{
-  background-color: teal;
+  background-color: #008080;
 }
 
 .btn-primary{
-  background-color: red;
+  background-color: #ff0000;
   border: 2px solid;
   border-color: black;
 }
@@ -13,13 +19,41 @@ body{
   text-transform: capitalize;
 }
 
-.list-group{
-  margin: 100px;
+.modal-content{
+  background-color: #b1b1b3;
+  display: flex;
 }
 
-@media (min-width: 990px) {
+.modal-header{
+  border-bottom: 3px solid #000000;
+}
+
+.list-group{
+  margin: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.list-group-item{
+  background-color: teal;
+  border: 0px;
+}
+
+@media (max-width: 992px) {
   .list-group {
-    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .list-group {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+@media (max-width: 576px) {
+  .list-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
