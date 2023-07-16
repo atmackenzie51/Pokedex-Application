@@ -21,6 +21,8 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+
+
   // Function that adds Pokémon as a list item
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".list-group");
@@ -79,6 +81,8 @@ let pokemonRepository = (function () {
       });
   }
 
+
+
   function showDetails(item) {
     loadDetails(item).then(() => {
       showModal(item);
@@ -98,9 +102,9 @@ let pokemonRepository = (function () {
     let pokemonImageShiny = $("<img class='modal-img' style='width:50%'>");
     pokemonImageShiny.attr("src", item.shiny);
 
-    let pokemonHeight = $("<p>" + "Height : " + item.height/10 + "m" + "</p>");
+    let pokemonHeight = $("<p><strong>Height:</strong> " + item.height/10 + "m" + "</p>");
     let capitalizedTypes = item.types.map(type => type.charAt(0).toUpperCase() + type.slice(1));
-    let pokemonTypes = $("<p>" + "Types: " + capitalizedTypes.join(", ") + "</p>");
+    let pokemonTypes = $("<p><strong>Types:</strong> " + capitalizedTypes.join(", ") + "</p>");
 
 
 
@@ -112,6 +116,9 @@ let pokemonRepository = (function () {
   }
 
 
+  
+  
+
 
   // Return public methods
   return {
@@ -122,6 +129,7 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     showDetails: showDetails,
     showModal: showModal
+    
   };
 })();
 
@@ -129,4 +137,6 @@ pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
-});
+  });
+
+
