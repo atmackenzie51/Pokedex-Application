@@ -90,11 +90,10 @@ let pokemonRepository = (function () {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
 
-    $('#exampleModal').on('hidden.bs.modal', function () {
+    $("#exampleModal").on("hidden.bs.modal", function () {
       modalTitle.empty();
       modalBody.empty();
-  });
-
+    });
 
     let pokemonName = $("<h1>" + item.name + "</h1>");
     let pokemonImageDefault = $("<img class='modal-img' style='width:50%'>");
