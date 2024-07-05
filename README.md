@@ -7,6 +7,9 @@ https://atmackenzie51.github.io/Pokedex-Application/
 ## Description: 
 This is an introduction project with JavaScript that populates a Pokédex from an external API. The user can click a Pokémon name from a list of the original 150 Pokémon released in 1996 and a modal will show some basic info of the Pokémon as well as its ‘shiny’ variant.
 
+![Example of Modal](img/Pokemon-modal.png)
+
+
 ## Technologies Used: 
 HTML, CSS, JavaScript, jQuery, Bootstrap, Ajax (asynchronous JavaScript and XML)
 
