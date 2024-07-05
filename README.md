@@ -12,7 +12,12 @@ This is an introduction project with JavaScript that populates a Pokédex from a
 </div>
 
 ## Technologies Used: 
-HTML, CSS, JavaScript, jQuery, Bootstrap, Ajax (asynchronous JavaScript and XML)
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* Bootstrap
+* Ajax (asynchronous JavaScript and XML)
 
 ## Reasoning in my design choice
 I am an avid Pokémon fan and enjoy to ‘shiny hunt’ which is why I included the shiny variant as well. The challenge it imposed was that it required more CSS formatting to make both images centered on the modal, as well as change the placement of the Pokémon’s information. As a user, someone who is ‘shiny hunting’ typically will want to look at the Pokémon to see if the shiny variant would be one they would like to add to their collection, being able to see both images side by side really helps in this effort.
